@@ -5,7 +5,7 @@ import { getArticulos } from '@/lib/actions'
 
 export default async function Home() {
     const articulos = await getArticulos()
-    // console.log(articulos);
+    console.log(articulos);
 
     return (
         <div>

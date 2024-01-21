@@ -1,4 +1,4 @@
-import Form from "@/components/Form"
+import Form from "@/components/FormArticulos"
 import { newArticulo } from "@/lib/actions"
 
 function page() {

@@ -58,3 +58,58 @@ export async function deleteArticulo(formData) {
   }
   redirect('/articulos');
 }
+
+// TODO: PARA PROVEEDORES
+export async function getProveedores() {
+  try {
+    const results = await db.all('select * from proveedores');
+    // console.log(results);
+    return results;
+  } catch (error) {
+    // console.log(error);  
+    return null;
+  }
+}
+
+export async function newProveedor(formData) {
+  try {
+    const nombre = formData.get('nombre');
+    const telefono = formData.get('telefono');
+
+    const query = 'insert into proveedores(nombre,telefono) values (?, ?)';
+    const results = await db.run(query, [nombre, telefono]);
+    console.log(results);
+  } catch (error) {
+    console.log(error);
+  }
+  redirect('/proveedores');
+}
+
+
+export async function editProveedor(formData) {
+  const id = formData.get('id')
+  const nombre = formData.get('nombre')
+  const telefono = formData.get('telefono')
+
+  try {
+    const query = 'update proveedores set nombre = ?, telefono = ? where id = ? ';
+    const results = await db.run(query, [nombre, telefono, id]);
+    console.log(results);
+  } catch (error) {
+    console.log(error);
+  }
+  redirect('/proveedores');
+}
+
+export async function deleteProveedor(formData) {
+  try {
+    const id = formData.get('id');
+
+    const query = 'delete from proveedores where id = ?';
+    const results = await db.run(query, [id]);
+    console.log(results);
+  } catch (error) {
+    console.log(error);
+  }
+  redirect('/proveedores');
+}

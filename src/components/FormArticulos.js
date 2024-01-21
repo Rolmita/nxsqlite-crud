@@ -1,5 +1,5 @@
 
-function Form({ action, title, articulo, disabled }) {
+function FormArticulos({ action, title, articulo, disabled }) {
 
     return (
         <form action={action} >
@@ -23,4 +23,4 @@ function Form({ action, title, articulo, disabled }) {
     )
 }
 
-export default Form
+export default FormArticulos

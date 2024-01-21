@@ -1,4 +1,4 @@
-import Form from "@/components/Form"
+import Form from "@/components/FormArticulos"
 import db  from "@/lib/sqlite"
 import { deleteArticulo } from "@/lib/actions"
 
